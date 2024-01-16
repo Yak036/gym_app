@@ -1,0 +1,16 @@
+.container-quest {
+  background-color: aliceblue;
+  margin: 1% auto;
+  width: 50%;
+  padding: 10px;
+}
+.container-quest h1 {
+  text-align: center;
+  padding: 5px;
+  font-size: 60px;
+  color: red;
+  background-color: rgb(219, 225, 239);
+}
+::-webkit-scrollbar {
+  display: none;
+}
