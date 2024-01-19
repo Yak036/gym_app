@@ -1,5 +1,6 @@
 import Welcome from "../components/Welcome";
 import NavBar from "../components/navBar";
+import Error404 from "./Error404";
 
 export default function WelcomeApp() {
   return (
@@ -10,7 +11,7 @@ export default function WelcomeApp() {
           <Welcome />
         </>
       ) : (
-        "Errr 404"
+        <Error404 />
       )}
     </>
   );

@@ -1,0 +1,19 @@
+.contain {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left {
+  width: 80%;
+}
+.error {
+  font-family: "Rubik Burned", system-ui;
+  font-size: 10rem;
+  font-weight: 400;
+}
+.text {
+  font-size: 5rem;
+}

@@ -10,11 +10,15 @@ const App = () => {
       element: <RegisterFormApp />,
     },
     {
+      path: "/",
+      element: <LoginFormApp />,
+    },
+    {
       path: "/login",
       element: <LoginFormApp />,
     },
     {
-      path: "/miau",
+      path: "/welcome",
       element: <WelcomeApp />,
     },
   ]);

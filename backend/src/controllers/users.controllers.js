@@ -11,7 +11,19 @@ exports.index = async (req, res) => {
     body: users,
   });
 };
-
+//  ! Ver un usuario
+exports.oneUser = async (req, res) => {
+  const user = await Users.findOne({
+    where: {
+      id: req.params.id,
+    },
+  });
+  res.status(200).json({
+    ok: true,
+    status: 200,
+    body: user,
+  });
+};
 // ! Guardar usuario
 exports.store = async (req, res) => {
   console.log(req.body);
