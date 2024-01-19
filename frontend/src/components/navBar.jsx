@@ -1,17 +1,50 @@
+import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-
+import axios from "axios";
+import Swal from "sweetalert2";
 export default function NavBar() {
   const navigate = useNavigate();
-  const closedSession = () => {
-    localStorage.removeItem("userId");
-    localStorage.removeItem("token");
-    navigate("/register");
+  const sessionData = {
+    id: localStorage.getItem("userId"),
+    secret_token: localStorage.getItem("token"),
   };
+  const closedSession = async () => {
+    try {
+      const response = await axios.patch(
+        "http://localhost:3302/api/destroy",
+        sessionData
+      );
+      let timerInterval;
+      Swal.fire({
+        title: `${response.data.message}`,
+        icon: "info",
+        html: "Se cerrara en <b></b> milisegundos.",
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+          localStorage.removeItem("userId");
+          localStorage.removeItem("token");
+          navigate("/register");
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <>
-      <nav class="navbar is-transparent">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
+      <nav className="navbar is-link">
+        <div className="navbar-brand">
+          <a className="navbar-item" href="https://bulma.io">
             <img
               src="https://queremosgraduarnos.org/wp-content/uploads/2022/07/LOGO-DEL-IUJO.png"
               alt="Bulma: a modern CSS framework based on Flexbox"
@@ -20,7 +53,7 @@ export default function NavBar() {
             />
           </a>
           <div
-            class="navbar-burger"
+            className="navbar-burger"
             data-target="navbarExampleTransparentExample"
           >
             <span></span>
@@ -29,37 +62,50 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-start">
-            <a class="navbar-item" href="https://bulma.io/">
+        <div id="navbarExampleTransparentExample" className="navbar-menu">
+          <div className="navbar-start">
+            <a className="navbar-item has-text-white" href="https://bulma.io/">
               Inicio
             </a>
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link" href="/register">
-                Registrarse
-              </a>
-              <div class="navbar-dropdown is-boxed">
-                <a class="navbar-item" href="/login">
-                  Iniciar Sesion
+            {!localStorage.getItem("token") ? (
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link has-text-white" href="/register">
+                  Registrarse
                 </a>
+                <div className="navbar-dropdown is-boxed">
+                  <a className="navbar-item " href="/login">
+                    Iniciar Sesion
+                  </a>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="navbar-item has-dropdown is-hoverable">
+                <a className="navbar-link has-text-white" href="/register">
+                  Perfil
+                </a>
+                <div className="navbar-dropdown is-boxed">
+                  <a className="navbar-item " href="/login">
+                    Configuracion
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">
+          <div className="navbar-end">
+            <div className="navbar-item">
+              <div className="field is-grouped">
                 {localStorage.getItem("token") ? (
-                  <p class="control">
+                  <p className="control">
                     <a
-                      class="bd-tw-button button"
+                      className="bd-tw-button button"
                       data-social-network="Twitter"
                       data-social-action="tweet"
                       data-social-target="https://bulma.io"
                       target="_blank"
                     >
-                      <span class="icon">
-                        <i class="fab fa-twitter"></i>
+                      <span className="icon">
+                        <i className="fab fa-twitter"></i>
                       </span>
                       <span onClick={closedSession}>Cerrar Sesion</span>
                     </a>

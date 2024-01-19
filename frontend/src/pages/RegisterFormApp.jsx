@@ -5,8 +5,14 @@ import NavBar from "../components/navBar";
 const RegisterFormApp = () => {
   return (
     <>
-      <NavBar />
-      <QuestContainer formTitle="Registrarse" form={<QuestRegister />} />
+      {!localStorage.getItem("token") ? (
+        <>
+          <NavBar />
+          <QuestContainer formTitle="Registrarse" form={<QuestRegister />} />
+        </>
+      ) : (
+        "Errr 404"
+      )}
     </>
   );
 };

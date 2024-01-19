@@ -9,5 +9,7 @@ router.post("/users", UsersController.store);
 
 // TODO: Ruta para iniciar sesion
 router.post("/sesion", UsersController.session);
+// TODO: ruta para cerrar sesion
+router.patch("/destroy", UsersController.destroy);
 
 module.exports = router;

@@ -1,15 +1,47 @@
+.rubik-burned-regular {
+  font-family: "Rubik Burned", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --principal: #fe7a36;
+  --secundatio: #3652ad;
+  --terciario: #280274;
+  --cuatiario: #e9f6ff;
+}
+
 .container-quest {
-  background-color: aliceblue;
+  background-color: var(--secundatio);
   margin: 1% auto;
-  width: 50%;
+  min-width: 38%;
+  max-width: 60%;
   padding: 10px;
+  border: 10px solid var(--principal);
+  transition: 0.2s;
+  box-shadow: 5px 5px 5px rgb(0, 0, 0);
+}
+.container-quest label {
+  color: aliceblue;
+}
+.container-quest input {
+  border: 2px solid black;
+}
+.container-quest input:focus {
+  transition: 0.2s;
+  border: 2px solid var(--principal);
+  box-shadow: 0px 0px 5px var(--principal);
+}
+.container-quest button {
+  margin: 5px;
 }
 .container-quest h1 {
+  font-family: "Rubik Burned", system-ui;
   text-align: center;
-  padding: 5px;
-  font-size: 60px;
-  color: red;
-  background-color: rgb(219, 225, 239);
+  padding: 10px 0px 10px;
+  font-size: 5vh;
+  color: var(--principal);
+  background-color: var(--terciario);
 }
 ::-webkit-scrollbar {
   display: none;

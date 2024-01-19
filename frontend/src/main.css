@@ -1,1 +1,19 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
+:root {
+  --principal: #fe7a36;
+  --secundatio: #3652ad;
+  --terciario: #280274;
+  --cuatiario: #e9f6ff;
+}
+
+html {
+  background: linear-gradient(#3652ad71 30%, #280274b4 120%),
+    url(../public/img/gym.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.navbar {
+  background-color: var(--secundatio);
+  box-shadow: 2px 2px 2px black;
+}

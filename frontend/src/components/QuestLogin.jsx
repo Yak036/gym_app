@@ -13,7 +13,6 @@ const QuestLogin = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     //? desde aqui se hace la comprobacion de datos
-    console.log(formState);
     try {
       const response = await axios.post(
         "http://localhost:3302/api/sesion",

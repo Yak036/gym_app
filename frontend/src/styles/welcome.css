@@ -1,0 +1,17 @@
+:root {
+  --principal: #fe7a36;
+  --secundatio: #3652ad;
+  --terciario: #280274;
+  --cuatiario: #e9f6ff;
+}
+.titlee {
+  font-family: "Rubik Burned", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 8rem;
+  color: var(--principal);
+  background-color: var(--secundatio);
+  text-align: center;
+  margin-top: 15%;
+  box-shadow: 0px 0px 5px black;
+}

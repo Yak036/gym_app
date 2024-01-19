@@ -35,6 +35,11 @@ User.init(
       allowNull: true,
       defaultValue: 0,
     },
+    secret_token: {
+      type: DataTypes.STRING,
+      allowNull: true,
+      defaultValue: 0,
+    },
   },
   {
     sequelize,
