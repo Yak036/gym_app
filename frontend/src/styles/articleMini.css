@@ -1,0 +1,46 @@
+.createArticle {
+  margin: 20px;
+}
+.mini-article-container {
+  background-color: rgba(207, 214, 228, 0.188);
+  margin: 20rem;
+
+  .miniArticle {
+    transition: 0.2s;
+    margin: 2rem 5px 5px 5px;
+    border: 3px solid black;
+    padding: 10px;
+    max-height: 20rem;
+    min-height: 20rem;
+    overflow: hidden;
+    background-color: rgb(13, 129, 230);
+    color: black;
+    font-weight: 600;
+
+    .title {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-height: 4rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      display: flex;
+    }
+    .description {
+      overflow: hidden;
+      height: 3rem;
+    }
+  }
+  .column:hover {
+    transform: scale(1.01);
+    transition: 0.2s;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    cursor: pointer;
+  }
+  .port {
+    background-color: black;
+    height: 10rem;
+    overflow: hidden;
+  }
+}

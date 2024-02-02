@@ -19,7 +19,9 @@ export default function Welcome() {
   return (
     <>
       <h1 className="titlee">Bienvenido</h1>
-      <p className="userName">{user.name}</p>
+      <p className="userName">
+        {user.name} {user.surName}
+      </p>
     </>
   );
 }

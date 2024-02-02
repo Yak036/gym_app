@@ -16,7 +16,7 @@ export default function NavBar() {
       );
       let timerInterval;
       Swal.fire({
-        title: `${response.data.message}`,
+        title: `Cerrando Sesion`,
         icon: "info",
         html: "Se cerrara en <b></b> milisegundos.",
         timer: 1500,
@@ -79,16 +79,28 @@ export default function NavBar() {
                 </div>
               </div>
             ) : (
-              <div className="navbar-item has-dropdown is-hoverable">
-                <a className="navbar-link has-text-white" href="/register">
-                  Perfil
-                </a>
-                <div className="navbar-dropdown is-boxed">
-                  <a className="navbar-item " href="/login">
-                    Configuracion
+              <>
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link has-text-white" href="/register">
+                    Perfil
                   </a>
+                  <div className="navbar-dropdown is-boxed">
+                    <a className="navbar-item " href="/login">
+                      Configuracion
+                    </a>
+                  </div>
                 </div>
-              </div>
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link has-text-white" href="/article">
+                    Articulos
+                  </a>
+                  <div className="navbar-dropdown is-boxed">
+                    <a className="navbar-item " href="/myArticle">
+                      Mis Articulos
+                    </a>
+                  </div>
+                </div>
+              </>
             )}
           </div>
 

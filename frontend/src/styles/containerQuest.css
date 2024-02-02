@@ -43,6 +43,3 @@
   color: var(--principal);
   background-color: var(--terciario);
 }
-::-webkit-scrollbar {
-  display: none;
-}

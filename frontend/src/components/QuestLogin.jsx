@@ -40,7 +40,7 @@ const QuestLogin = () => {
             clearInterval(timerInterval);
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("userId", response.data.userId);
-            navigate("/miau");
+            navigate("/welcome");
           },
         });
       } else {

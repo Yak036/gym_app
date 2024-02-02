@@ -36,7 +36,8 @@ exports.store = async (req, res) => {
       email,
     },
   });
-  if (matchEmail) {
+  console.log(matchEmail);
+  if (matchEmail.length != 0) {
     res.status(203).json({
       ok: false,
       status: 203,
