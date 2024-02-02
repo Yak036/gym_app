@@ -3,7 +3,13 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import EditArticleForm from "./EditArticleForm";
 
-export default function ArticleMini({ title, description, img, id, disabled }) {
+export default function ArticleMini({
+  title,
+  description,
+  img,
+  id,
+  disabled = true,
+}) {
   const [modal, setModal] = useState(false);
   const [articles, setArticles] = useState([]);
 
