@@ -21,6 +21,12 @@ exports.index = async (req, res) => {
 //TODO: Ver ciertos Articulos
 exports.myArticles = async (req, res) => {
   const articles = await Article.findAll({
+    include: [
+      {
+        model: User,
+        attributes: ["name", "surname"],
+      },
+    ],
     where: {
       users_id: req.params.id,
     },

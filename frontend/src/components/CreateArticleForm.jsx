@@ -84,6 +84,7 @@ export default function CreateArticleForm() {
               }, 100);
             },
             willClose: () => {
+              navigate("/myArticle");
               clearInterval(timerInterval);
             },
           });

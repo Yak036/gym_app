@@ -21,8 +21,9 @@ export default function ArticleApp() {
       <div className="mini-article-container columns containerForm is-flex-wrap-wrap is-justify-content-center">
         {articles.map((article, index) => (
           <ArticleMini
-            id={index}
+            id={article.id}
             key={index}
+            userName={article.user.name + " " + article.user.surName}
             title={article.title}
             description={article.description}
             img={article.img}

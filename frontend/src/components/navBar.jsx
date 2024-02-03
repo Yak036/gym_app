@@ -64,7 +64,7 @@ export default function NavBar() {
 
         <div id="navbarExampleTransparentExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item has-text-white" href="https://bulma.io/">
+            <a className="navbar-item has-text-white" href="/welcome">
               Inicio
             </a>
             {!localStorage.getItem("token") ? (
@@ -100,6 +100,9 @@ export default function NavBar() {
                     </a>
                   </div>
                 </div>
+                <a className="navbar-item has-text-white" href="sobreNosotros">
+                  Sobre Nosotros
+                </a>
               </>
             )}
           </div>

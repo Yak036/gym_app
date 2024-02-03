@@ -3,12 +3,12 @@ import NavBar from "../components/navBar";
 import axios from "axios";
 import ArticleMini from "../components/ArticleMini";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import ModalArticle from "../components/ModalArticle";
+
 import "../styles/articleMini.css";
 
 export default function MyArticleApp() {
   const navigate = useNavigate();
-  const [modal, setModal] = useState(false);
+
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ export default function MyArticleApp() {
       <div className="mini-article-container columns containerForm is-flex-wrap-wrap is-justify-content-center">
         {articles.map((article, index) => (
           <ArticleMini
-            id={index}
+            id={article.id}
             key={index}
             title={article.title}
             description={article.description}

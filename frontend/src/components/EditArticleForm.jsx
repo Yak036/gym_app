@@ -9,9 +9,10 @@ export default function EditArticleForm({
   imgArticle,
   idArticle,
   disabled,
+  userArticle,
 }) {
-  const deleteArticle = async (e) => {
-    e.preventDefault();
+  // alert(idArticle);
+  const deleteArticle = async () => {
     try {
       const response = await axios.delete(
         `http://localhost:3302/api/articles/${idArticle}`
@@ -38,6 +39,20 @@ export default function EditArticleForm({
     } catch (error) {
       console.error(error);
     }
+  };
+  const verifyDelete = (e) => {
+    e.preventDefault();
+    Swal.fire({
+      title: "Estas seguro?",
+      text: "Este proceso no se puede revertir",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si",
+    }).then((result) => {
+      if (result.isConfirmed) deleteArticle();
+    });
   };
   const navigate = useNavigate();
   const initialForm = {
@@ -130,55 +145,55 @@ export default function EditArticleForm({
   };
   return (
     <>
-      <form
-        onSubmit={onSubmit}
-        className="columns containerForm is-flex-wrap-wrap is-justify-content-center"
-        autoComplete="off"
-      >
-        <div className="column is-8 field">
-          <label className="label">Titulo</label>
-          <div className="control">
-            <input
-              value={titleArticle}
-              className="input"
-              type="text"
-              placeholder="Ej. Los tigresitos tragaban trigo"
-              name="title"
-              onChange={onInputChange}
-            />
-          </div>
-        </div>
+      {disabled ? (
+        <>
+          <form
+            onSubmit={onSubmit}
+            className="columns containerForm is-flex-wrap-wrap is-justify-content-center"
+            autoComplete="off"
+          >
+            <div className="column is-8 field">
+              <label className="label">Titulo</label>
+              <div className="control">
+                <input
+                  value={titleArticle}
+                  className="input"
+                  type="text"
+                  placeholder="Ej. Los tigresitos tragaban trigo"
+                  name="title"
+                  onChange={onInputChange}
+                />
+              </div>
+            </div>
 
-        <div className="column is-5 field">
-          <label className="label">Descripcion</label>
-          <div className="control">
-            <textarea
-              value={contentArticle}
-              className="textarea is-info"
-              type="text"
-              placeholder="Ej. El contenido de tu articulo"
-              name="description"
-              onChange={onInputChange}
-            />
-          </div>
-        </div>
+            <div className="column is-5 field">
+              <label className="label">Descripcion</label>
+              <div className="control">
+                <textarea
+                  value={contentArticle}
+                  className="textarea is-info"
+                  type="text"
+                  placeholder="Ej. El contenido de tu articulo"
+                  name="description"
+                  onChange={onInputChange}
+                />
+              </div>
+            </div>
 
-        <div className="column is-8 field">
-          <label className="label">URL de la imagen (temporal)</label>
-          <div className="control">
-            <input
-              value={imgArticle}
-              className="input"
-              type="text"
-              placeholder="URL de la imagen"
-              name="img"
-              onChange={onInputChange}
-            />
-            <input type="hidden" name="users_id" onChange={onInputChange} />
-          </div>
-        </div>
-        {disabled ? (
-          <>
+            <div className="column is-8 field">
+              <label className="label">URL de la imagen (temporal)</label>
+              <div className="control">
+                <input
+                  value={imgArticle}
+                  className="input"
+                  type="text"
+                  placeholder="URL de la imagen"
+                  name="img"
+                  onChange={onInputChange}
+                />
+                <input type="hidden" name="users_id" onChange={onInputChange} />
+              </div>
+            </div>
             <button
               className="button is-primary is-light is-large is-fullwidth"
               type="submit"
@@ -188,15 +203,51 @@ export default function EditArticleForm({
             <button
               className="button is-primary is-danger is-large is-fullwidth"
               type="submit"
-              onClick={deleteArticle}
+              onClick={verifyDelete}
             >
               Eliminar
             </button>
-          </>
-        ) : (
-          ""
-        )}
-      </form>
+          </form>
+        </>
+      ) : (
+        <form
+          onSubmit={onSubmit}
+          className="columns containerForm is-flex-wrap-wrap is-justify-content-center"
+          autoComplete="off"
+        >
+          <div className="column is-8 field">
+            <label className="label">Titulo</label>
+            <div className="control">
+              <input
+                disabled
+                value={titleArticle}
+                className="input"
+                type="text"
+                placeholder="Ej. Los tigresitos tragaban trigo"
+                name="title"
+                onChange={onInputChange}
+              />
+            </div>
+          </div>
+
+          <div className="column is-5 field">
+            <label className="label">Descripcion</label>
+            <div className="control">
+              <textarea
+                disabled
+                value={contentArticle}
+                className="textarea is-info"
+                type="text"
+                placeholder="Ej. El contenido de tu articulo"
+                name="description"
+                onChange={onInputChange}
+              />
+            </div>
+          </div>
+
+          <img src={imgArticle} alt="" />
+        </form>
+      )}
     </>
   );
 }

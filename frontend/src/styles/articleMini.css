@@ -18,13 +18,12 @@
     font-weight: 600;
 
     .title {
-      white-space: nowrap;
+      color: black;
+      font-weight: 700;
+      font-size: 20px;
       text-overflow: ellipsis;
       overflow: hidden;
       max-height: 4rem;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
       display: flex;
     }
     .description {
@@ -39,7 +38,6 @@
     cursor: pointer;
   }
   .port {
-    background-color: black;
     height: 10rem;
     overflow: hidden;
   }

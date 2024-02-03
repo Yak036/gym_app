@@ -8,6 +8,7 @@ export default function ArticleMini({
   description,
   img,
   id,
+  userName,
   disabled = true,
 }) {
   const [modal, setModal] = useState(false);
@@ -21,10 +22,9 @@ export default function ArticleMini({
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const response = await axios.get(
-        `http://localhost:3302/api/articles/${localStorage.getItem("userId")}`
-      );
+      const response = await axios.get(`http://localhost:3302/api/articles/18`);
       setArticles(response.data.body);
+      console.log(response);
     };
     fetchArticles();
   }, [modal]);
@@ -39,7 +39,7 @@ export default function ArticleMini({
         <div className="port is-align-content-center">
           <img src={img} alt="" />
         </div>
-        <h2 className="has-text-centered title">{title}</h2>
+        <p className="has-text-centered title">{title}</p>
         <p className="description">{description}</p>
       </div>
       {/* //? ventana modal */}
@@ -48,7 +48,7 @@ export default function ArticleMini({
         <div className="modal-card">
           <header className="modal-card-head">
             <p className="modal-card-title">
-              {/* {articles ? articles[id].title : "no"} */}
+              <p>{userName}</p>
             </p>
             <button
               className="delete"
@@ -58,10 +58,10 @@ export default function ArticleMini({
           </header>
           <section className="modal-card-body">
             <EditArticleForm
-              titleArticle={modal ? articles[id].title : "no"}
-              contentArticle={modal ? articles[id].description : "no"}
-              imgArticle={modal ? articles[id].img : "no"}
-              idArticle={modal ? articles[id].id : "no"}
+              titleArticle={title}
+              contentArticle={description}
+              imgArticle={img}
+              idArticle={id}
               disabled={disabled}
             />
           </section>

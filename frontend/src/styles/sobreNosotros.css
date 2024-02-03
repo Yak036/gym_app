@@ -1,9 +1,10 @@
 .card {
-  background-color: rgb(228, 242, 255);
+  background-color: rgb(0, 72, 139);
   margin-top: 50px;
 }
 
 .footer {
   height: 5rem;
   margin-top: 60vh;
+  background-color: black;
 }
