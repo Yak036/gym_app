@@ -1,0 +1,47 @@
+:root {
+  --principal: #e8d8c4;
+  --secundatio: #c7b7a3;
+  --terciario: #6d2932;
+  --cuatiario: #561c24;
+}
+.title.prin {
+  text-align: center;
+  background-color: var(--principal);
+  font-family: "Rubik Burned", system-ui;
+}
+.plans-container {
+  margin: 2em auto;
+  display: flex;
+  justify-content: center;
+  .column {
+    position: relative;
+    margin: 10px;
+    background-color: var(--principal);
+    border: 10px solid var(--cuatiario);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .cristal {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(
+        30deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.463) 30%,
+        transparent 90%
+      );
+      width: 100%;
+      height: 100%;
+    }
+    .title {
+      text-align: center;
+    }
+    .footer-plan {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

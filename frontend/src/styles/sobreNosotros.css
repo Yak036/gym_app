@@ -1,3 +1,10 @@
+:root {
+  --principal: #e8d8c4;
+  --secundatio: #c7b7a3;
+  --terciario: #6d2932;
+  --cuatiario: #561c24;
+}
+
 .card {
   background-color: rgb(0, 72, 139);
   margin-top: 50px;

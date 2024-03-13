@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -42,9 +41,9 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="navbar is-link">
-        <div className="navbar-brand">
-          <a className="navbar-item" href="https://bulma.io">
+      <nav className="navbar is-dark">
+        <div className="navbar-brand is-dark">
+          <a className="navbar-item is-dark" href="https://bulma.io">
             <img
               src="https://queremosgraduarnos.org/wp-content/uploads/2022/07/LOGO-DEL-IUJO.png"
               alt="Bulma: a modern CSS framework based on Flexbox"
@@ -53,7 +52,7 @@ export default function NavBar() {
             />
           </a>
           <div
-            className="navbar-burger"
+            className="navbar-burger is-dark"
             data-target="navbarExampleTransparentExample"
           >
             <span></span>
@@ -62,8 +61,11 @@ export default function NavBar() {
           </div>
         </div>
 
-        <div id="navbarExampleTransparentExample" className="navbar-menu">
-          <div className="navbar-start">
+        <div
+          id="navbarExampleTransparentExample"
+          className="navbar-menu is-dark"
+        >
+          <div className="navbar-start is-dark">
             <a className="navbar-item has-text-white" href="/welcome">
               Inicio
             </a>
@@ -81,12 +83,12 @@ export default function NavBar() {
             ) : (
               <>
                 <div className="navbar-item has-dropdown is-hoverable">
-                  <a className="navbar-link has-text-white" href="/register">
+                  <a className="navbar-link has-text-white" href="/perfil">
                     Perfil
                   </a>
                   <div className="navbar-dropdown is-boxed">
-                    <a className="navbar-item " href="/login">
-                      Configuracion
+                    <a className="navbar-item " href="/plans">
+                      Planes
                     </a>
                   </div>
                 </div>

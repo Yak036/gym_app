@@ -5,8 +5,9 @@ import ArticleApp from "./pages/ArticleApp.jsx";
 import MyArticleApp from "./pages/MyArticleApp.jsx";
 import CreateArticleApp from "./pages/CreateArticleApp.jsx";
 import SobreNosotrosApp from "./pages/SobreNosotrosApp.jsx";
+import PerfilApp from "./pages/PerfilApp.jsx";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
+import PlansApp from "./pages/PlansApp.jsx";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ const App = () => {
     },
     {
       path: "/",
-      element: <LoginFormApp />,
+      element: <WelcomeApp />,
     },
     {
       path: "/login",
@@ -40,6 +41,14 @@ const App = () => {
     {
       path: "sobreNosotros",
       element: <SobreNosotrosApp />,
+    },
+    {
+      path: "perfil",
+      element: <PerfilApp />,
+    },
+    {
+      path: "plans",
+      element: <PlansApp />,
     },
   ]);
   return (

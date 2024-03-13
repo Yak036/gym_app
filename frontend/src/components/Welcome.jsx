@@ -18,10 +18,13 @@ export default function Welcome() {
   }, [conf]);
   return (
     <>
-      <h1 className="titlee">Bienvenido</h1>
-      <p className="userName">
-        {user.name} {user.surName}
-      </p>
+      <div className="slogan">
+        <h1 className="titlee">Muevete Flojo</h1>
+        <p className="userName">
+          Un paso más cerca de tu mejor versión. <br />
+          Sigue esforzandote {user.name} {user.surName}
+        </p>
+      </div>
     </>
   );
 }

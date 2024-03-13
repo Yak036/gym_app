@@ -4,13 +4,6 @@
   font-style: normal;
 }
 
-:root {
-  --principal: #fe7a36;
-  --secundatio: #3652ad;
-  --terciario: #280274;
-  --cuatiario: #e9f6ff;
-}
-
 .container-quest {
   background-color: var(--secundatio);
   margin: 1% auto;

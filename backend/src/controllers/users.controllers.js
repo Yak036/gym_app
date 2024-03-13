@@ -2,7 +2,7 @@ const Users = require("../model/users.model");
 const bcrypt = require("bcrypt");
 const { v4: uuidv4 } = require("uuid");
 
-// ! ver usuarios
+//TODO: ver usuarios
 exports.index = async (req, res) => {
   const users = await Users.findAll();
   res.status(200).json({
@@ -11,7 +11,7 @@ exports.index = async (req, res) => {
     body: users,
   });
 };
-//  ! Ver un usuario
+// TODO: Ver un usuario
 exports.oneUser = async (req, res) => {
   const user = await Users.findOne({
     where: {
@@ -24,7 +24,7 @@ exports.oneUser = async (req, res) => {
     body: user,
   });
 };
-// ! Guardar usuario
+//TODO: Guardar usuario
 exports.store = async (req, res) => {
   console.log(req.body);
   const dataUser = req.body;
@@ -64,7 +64,47 @@ exports.store = async (req, res) => {
   });
 };
 
-// ! iniciar sesion
+//TODO: Editar persona
+exports.update = async (req, res) => {
+  const user = await Users.findOne({
+    where: { id: req.params.idUser },
+  });
+  const { password } = req.body;
+  const match = await bcrypt.compare(password, user.password);
+  if (match) {
+    const dataUser = req.body;
+    const updateUser = await Users.update(
+      {
+        name: dataUser.name,
+        surName: dataUser.surName,
+        dateBirth: dataUser.dateBirth,
+        email: dataUser.email,
+      },
+      {
+        where: {
+          id: req.params.idUser,
+        },
+      }
+    );
+    res.status(200).json({
+      ok: true,
+      status: 200,
+      message: "Usuario actualizado correctamente",
+      body: updateUser,
+    });
+
+    return;
+  } else {
+    res.status(201).json({
+      ok: false,
+      status: 201,
+      message: "Contraseña invalida",
+    });
+    return;
+  }
+};
+
+//TODO: iniciar sesion
 exports.session = async (req, res) => {
   console.log(req.body);
   const { email, password } = req.body;
@@ -109,7 +149,7 @@ exports.session = async (req, res) => {
   }
 };
 
-// ! cerrar sesion
+//TODO: cerrar sesion
 exports.destroy = async (req, res) => {
   console.log(req.body);
   const { id, secret_token } = req.body;

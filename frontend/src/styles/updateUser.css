@@ -1,0 +1,13 @@
+.personal-data.is-active {
+  display: flex;
+}
+.personal-data.is-active {
+  display: flex;
+}
+.checkboxs {
+  text-align: center;
+  .checkbox {
+    margin: 5px;
+    color: black;
+  }
+}
